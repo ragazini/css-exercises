@@ -5,6 +5,14 @@
 
 .container {
   text-align: center;
+  display: grid;
+  /* grid-template: 1fr 1fr 5fr 1fr / 1fr 4fr; */
+  grid-template-areas:
+    "header header"
+    "sidebar nav"
+    "sidebar article"
+    "footer footer";
+  gap: 4px;
 }
 
 .container div {
@@ -17,15 +25,40 @@
 
 .header {
   background-color: #393f4d;
+  grid-area: header;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+/* .menu ul {
+  display: grid;
+} */
+
+.menu ul {
+  display: grid;
+  /* grid-template-rows: 1fr; */
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* align-self: center; */
+  /* background-color: aquamarine; */
 }
 
 .menu ul,
 .menu li {
   font-size: 16px;
+  list-style-type: none;
 }
 
+/* I didn't add this myself but it appeared in the solution
+.logo {
+  justify-self: start;
+} */
+
 .sidebar {
-  background-color: #C50208;
+  background-color: #c50208;
+  grid-area: sidebar;
+  display: grid;
+  gap: 50px;
+  /* align-items: center; */
 }
 
 .sidebar .photo {
@@ -34,18 +67,31 @@
   font-size: 12px;
   font-weight: normal;
   border-radius: 10px;
+  height: 150px;
+  display: grid;
+  align-items: center;
 }
-
 
 .sidebar .side-content {
   background-color: white;
   color: black;
   font-size: 16px;
   font-weight: normal;
+  height: 150px;
+  display: grid;
+  align-items: center;
 }
 
 .nav {
-  background-color: #C50208;
+  background-color: #c50208;
+  grid-area: nav;
+}
+
+/* not sure about the below code */
+.nav ul {
+  display: grid;
+  list-style-type: none;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .nav ul li {
@@ -55,6 +101,10 @@
 
 .article {
   background-color: #bccbde;
+  grid-area: article;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
 }
 
 .article p {
@@ -65,15 +115,17 @@
 }
 
 .article .card {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: black;
   text-align: center;
+  height: 200px;
 }
 
 .card p {
   color: black;
   font-weight: normal;
   font-size: 14px;
+  padding: 5px;
 }
 
 .card .title {
@@ -83,6 +135,7 @@
 
 .footer {
   background-color: #393f4d;
+  grid-area: footer;
 }
 
 .footer p {
